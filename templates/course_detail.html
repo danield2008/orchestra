@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ course.name }}{% endblock %}
+{% block content %}
+<h2>{{ course.name }}</h2>
+<p>{{ course.description }}</p>
+
+<section class="card">
+  <h3>Materiales PDF</h3>
+  <ul>
+    {% for material in materials %}
+      <li>
+        <a href="{{ url_for('serve_material', filename=material.filename) }}" target="_blank">
+          {{ material.title }}
+        </a>
+        <small>Subido: {{ material.uploaded_at }}</small>
+      </li>
+    {% else %}
+      <li>No hay materiales en este curso.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

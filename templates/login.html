@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<section class="card small">
+  <h2>Iniciar sesión</h2>
+  <p>Usuario admin inicial: <b>admin</b> / <b>admin123</b></p>
+  <form method="post">
+    <label>Usuario</label>
+    <input type="text" name="username" required />
+
+    <label>Contraseña</label>
+    <input type="password" name="password" required />
+
+    <button type="submit">Entrar</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Mis cursos{% endblock %}
+{% block content %}
+<h2>Mis cursos</h2>
+<p>Hola, {{ session['username'] }}.</p>
+<section class="card">
+  <ul>
+    {% for course in courses %}
+      <li>
+        <a href="{{ url_for('course_detail', course_id=course.id) }}">{{ course.name }}</a>
+        <p>{{ course.description }}</p>
+      </li>
+    {% else %}
+      <li>Aún no tienes cursos asignados.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}
